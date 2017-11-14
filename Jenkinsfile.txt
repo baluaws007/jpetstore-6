@@ -5,7 +5,7 @@ pipeline {
 			stage('Compile Stage') {
 				
 				steps {
-					with Maven(maven : 'jenkins variable') {
+					with Maven(maven : 'Maven') {
 						sh 'mvn clean compile'
 					
 					}
@@ -15,7 +15,7 @@ pipeline {
 			stage('Testing Stage') {
 				
 				steps {
-					with Maven(maven : 'jenkins variable') {
+					with Maven(maven : 'Maven') {
 						sh 'mvn test'
 					
 					}
@@ -25,7 +25,7 @@ pipeline {
 			stage('Deploy Stage') {
 				
 				steps {
-					with Maven(maven : 'jenkins variable') {
+					with Maven(maven : 'Maven') {
 						sh 'mvn deploy'
 					
 					}
