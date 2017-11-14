@@ -1,0 +1,37 @@
+pipeline {
+	agent any
+		
+		stages {
+			stage('Compile Stage') {
+				
+				steps {
+					with Maven(maven : 'jenkins variable') {
+						sh 'mvn clean compile'
+					
+					}
+				}
+			}
+			
+			stage('Testing Stage') {
+				
+				steps {
+					with Maven(maven : 'jenkins variable') {
+						sh 'mvn test'
+					
+					}
+				}
+			}
+			
+			stage('Deploy Stage') {
+				
+				steps {
+					with Maven(maven : 'jenkins variable') {
+						sh 'mvn deploy'
+					
+					}
+				}
+			}
+			
+			
+		}
+	}
